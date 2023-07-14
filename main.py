@@ -1,43 +1,63 @@
-
 import streamlit as st
 
-counters = {}
+st.set_page_config(layout="wide") 
 
-st.title("Multi Counter App")
+if "counters" not in st.session_state:
+    st.session_state.counters = {}
 
-if 'count' not in st.session_state:
-    st.session_state.count = 0
-
-def increment_counter():
-    st.session_state.count += 1
-
-def reset_all():
-    st.session_state.count = 0
-    counters.clear()
+if "num_counters" not in st.session_state:
+    st.session_state.num_counters = 1 
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.button("Increment", on_click=increment_counter)
-    st.metric("Default Counter", st.session_state.count)
 
-with col2:
-    name = st.text_input("Counter Name")
-    if name:
-        if name not in counters:
-            counters[name] = 0
-        counters[name] += 1
-        st.metric(name, counters[name])
-        st.button("Delete "+name, on_click=counters.pop, args=[name])
+    st.button("Increment Sander", key="inc", on_click=increment, args=["Sander"])
+    st.button("Decrement Sander", key="dec", on_click=decrement, args=["Sander"])
+    st.metric("Sander", st.session_state.counters.get("Sander", 0))
 
-st.button("Reset All Counters", on_click=reset_all)
+with st.sidebar:
 
-if 'reset_confirm' not in st.session_state:
-    st.session_state.reset_confirm = False
+    st.header("Options")
+    name = st.text_input("Add User") 
+    
+    if st.session_state.num_counters < 4:
+        add_btn = st.button("Add Counter")
+    else:
+        add_btn = st.button("Add Counter", disabled=True)
+        
+    if add_btn: 
+        add_counter(name)
+        
+@st.cache
+def increment(name):
+    if name not in st.session_state.counters:
+        st.session_state.counters[name] = 0
+    st.session_state.counters[name] += 1
+    
+@st.cache
+def decrement(name):
+    if name not in st.session_state.counters:
+        st.session_state.counters[name] = 0
+    st.session_state.counters[name] -= 1
+   
+def add_counter(name):
+    
+    if st.session_state.num_counters >= 4:
+        st.error("Reached max of 4 counters")
+        return
 
-st.checkbox("Check to confirm reset", key="reset_confirm")
+    col = get_column()
+    
+    with col:
+        st.button("Increment "+name, on_click=increment, args=[name])
+        st.button("Decrement "+name, on_click=decrement, args=[name])
+        st.metric(name, st.session_state.counters.get(name, 0))
 
-if st.session_state.reset_confirm:
-    st.button("Reset All Counters", on_click=reset_all)
-else:
-    st.warning("Check the box to confirm reset")
+    st.session_state.num_counters += 1
+    
+def get_column():
+    if st.session_state.num_counters % 2 == 0:
+        return st.columns(2) 
+    else:
+        return st.columns(1)
