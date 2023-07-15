@@ -6,6 +6,10 @@ col = st.columns(4)
 if "cvalues" not in st.session_state:
     st.session_state.cvalues = [0, 0, 0, 0]
 
+if 'cnames' not in st.session_state:
+    st.session_state.cnames = counters
+
+
 def increment_counter(i):
     st.session_state.cvalues[i] += 1
     
@@ -26,13 +30,13 @@ with col[3]:
     st.metric(counters[3], st.session_state.cvalues[3])
 
 with st.sidebar:
-    custom_name1 = st.text_input(f"New name for {counters[0]}")
+    custom_name1 = st.text_input(f"New name for {st.session_state.cvalues[0]}")
     custom_name2 = st.text_input(f"New name for {counters[1]}")
     custom_name3 = st.text_input(f"New name for {counters[2]}")
     custom_name4 = st.text_input(f"New name for {counters[3]}")
     
     if custom_name1:
-        counters[0] = custom_name1
+        st.session_state.cvalues[0] = custom_name1
     if custom_name2:
         counters[1] = custom_name2
     if custom_name3:
