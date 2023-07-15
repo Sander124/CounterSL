@@ -15,16 +15,16 @@ with col[0]:
     st.metric(counters[0], st.session_state.cvalues[0])
     
 with col[1]:
-    st.button(f"Increment {counters[1]}", disabled=True)
-    st.metric(counters[1], 0, disabled=True)
+    st.button(f"Increment {counters[1]}", on_click=increment_counter, args=[1]) 
+    st.metric(counters[1], st.session_state.cvalues[1])
 
 with col[2]:
-    st.button(f"Increment {counters[2]}", disabled=True)
-    st.metric(counters[2], 0, disabled=True)
+    st.button(f"Increment {counters[2]}", on_click=increment_counter, args=[2]) 
+    st.metric(counters[2], st.session_state.cvalues[2])
 
 with col[3]:
-    st.button(f"Increment {counters[3]}", disabled=True)
-    st.metric(counters[3], 0, disabled=True)
+    st.button(f"Increment {counters[3]}", on_click=increment_counter, args=[3]) 
+    st.metric(counters[3], st.session_state.cvalues[3])
 
 with st.sidebar:
     if st.checkbox(f"Enable {counters[1]}"):
