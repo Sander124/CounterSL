@@ -17,13 +17,13 @@ def decrement(name):
     st.session_state.counters[name] -= 1
    
 def add_counter(name):
-    
     if st.session_state.num_counters >= 4:
         st.error("Reached max of 4 counters")
     else:
         cols[st.session_state.num_counters].st.button("Increment "+name, on_click=increment, args=[name])
         cols[st.session_state.num_counters].st.button("Decrement "+name, on_click=decrement, args=[name])
-        return
+        st.session_state.num_counters += 1
+    return
 
 def get_column():
     if st.session_state.num_counters % 2 == 0:
@@ -61,7 +61,7 @@ with st.sidebar:
 with col:
     st.button("Increment "+name, on_click=increment, args=[name])
     st.button("Decrement "+name, on_click=decrement, args=[name])
-        st.metric(name, st.session_state.counters.get(name, 0))
+    st.metric(name, st.session_state.counters.get(name, 0))
 
-    st.session_state.num_counters += 1
+    
     
