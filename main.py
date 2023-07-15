@@ -3,9 +3,16 @@ import streamlit as st
 counters = ["Counter 1", "Counter 2", "Counter 3", "Counter 4"]
 col = st.columns(4)
 
+if "values" not in st.session_state:
+    st.session_state.values = [0, 0, 0, 0]
+
+def increment_counter(i):
+    st.session_state.values[i] += 1
+
+    
 with col[0]:
-    st.button(f"Increment {counters[0]}", disabled=False)
-    st.metric(counters[0], 0, disabled=True)
+    st.button(f"Increment {counters[i]}", on_click=increment_counter, args=[i]) 
+    st.metric(counters[i], st.session_state.values[i])
     
 with col[1]:
     st.button(f"Increment {counters[1]}", disabled=True)
