@@ -40,9 +40,9 @@ with st.sidebar:
         name = st.selectbox('Name to replace', st.session_state.cnames)
         to_name = st.text_input(f"Replace with:")
         apply = st.form_submit_button("Apply changes")
-    if apply:
-        idx = st.session_state.cnames.index(name)
-        st.session_state.cnames[idx] = to_name
+        if apply:
+            idx = st.session_state.cnames.index(name)
+            st.session_state.cnames[idx] = to_name
 
 
     
