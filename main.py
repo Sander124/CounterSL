@@ -56,7 +56,7 @@ with st.sidebar:
     if add_btn: 
         add_counter(name)
 
-    col = get_column()
+col = get_column()
     
 with col:
     st.button("Increment "+name, on_click=increment, args=[name])
