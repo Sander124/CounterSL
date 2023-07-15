@@ -32,12 +32,12 @@ with st.sidebar:
     custom_name4 = st.text_input(f"New name for {counters[3]}")
     
     if custom_name1:
-        counters[0] = custom_name
+        counters[0] = custom_name1
     if custom_name2:
-        counters[1] = custom_name
+        counters[1] = custom_name2
     if custom_name3:
-        counters[2] = custom_name
+        counters[2] = custom_name3
     if custom_name4:
-        counters[3] = custom_name
+        counters[3] = custom_name4
     
     
