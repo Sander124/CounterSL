@@ -2,13 +2,13 @@ import streamlit as st
 
 st.set_page_config(layout="wide") 
 
-@st.cache
+@st.cache_data
 def increment(name):
     if name not in st.session_state.counters:
         st.session_state.counters[name] = 0
     st.session_state.counters[name] += 1
     
-@st.cache
+@st.cache_data
 def decrement(name):
     if name not in st.session_state.counters:
         st.session_state.counters[name] = 0
