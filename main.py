@@ -1,12 +1,23 @@
 import streamlit as st
 
 counters = ["Counter 1", "Counter 2", "Counter 3", "Counter 4"]
+col = st.columns(4)[i]
 
-for i in range(4):
-    col = st.columns(1)[i]
-    with col:
-        st.button(f"Increment {counters[i]}", disabled=True)
-        st.metric(counters[i], 0, disabled=True)
+with col[0]:
+    st.button(f"Increment {counters[0]}", disabled=False)
+    st.metric(counters[0], 0, disabled=True)
+    
+with col[1]:
+    st.button(f"Increment {counters[1]}", disabled=True)
+    st.metric(counters[1], 0, disabled=True)
+
+with col[2]:
+    st.button(f"Increment {counters[2]}", disabled=True)
+    st.metric(counters[2], 0, disabled=True)
+
+with col[3]:
+    st.button(f"Increment {counters[3]}", disabled=True)
+    st.metric(counters[3], 0, disabled=True)
 
 with st.sidebar:
     for i in range(4):
