@@ -17,6 +17,7 @@ def decrement(name):
     st.session_state.counters[name] -= 1
    
 def add_counter(name):
+    
     if st.session_state.num_counters >= 4:
         st.error("Reached max of 4 counters")
     else:
