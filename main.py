@@ -30,18 +30,18 @@ with col[3]:
     st.metric(st.session_state.cnames[3], st.session_state.cvalues[3])
 
 with st.sidebar:
-    custom_name1 = st.text_input(f"New name for {st.session_state.cvalues[0]}")
-    custom_name2 = st.text_input(f"New name for {counters[1]}")
-    custom_name3 = st.text_input(f"New name for {counters[2]}")
-    custom_name4 = st.text_input(f"New name for {counters[3]}")
+    custom_name1 = st.text_input(f"New name for {st.session_state.cnames[0]}")
+    custom_name2 = st.text_input(f"New name for {st.session_state.cnames[1]}")
+    custom_name3 = st.text_input(f"New name for {st.session_state.cnames[2]}")
+    custom_name4 = st.text_input(f"New name for {st.session_state.cnames[3]}")
     
     if custom_name1:
-        st.session_state.cvalues[0] = custom_name1
+        st.session_state.cnames[0] = custom_name1
     if custom_name2:
-        counters[1] = custom_name2
+        st.session_state.cnames[1] = custom_name2
     if custom_name3:
-        counters[2] = custom_name3
+        st.session_state.cnames[2] = custom_name3
     if custom_name4:
-        counters[3] = custom_name4
+        st.session_state.cnames[3] = custom_name4
     
     
