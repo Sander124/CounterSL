@@ -26,17 +26,6 @@ with col[3]:
     st.metric(counters[3], st.session_state.cvalues[3])
 
 with st.sidebar:
-    counter2 = st.checkbox(f"Enable {counters[1]}")
-    counter3 = st.checkbox(f"Enable {counters[2]}")
-    counter4 = st.checkbox(f"Enable {counters[3]}")
-    
-    if counter2:
-        enable_counter(1)
-    if counter3:
-        enable_counter(2)
-    if counter4:
-        enable_counter(3)
-            
     custom_name1 = st.text_input(f"New name for {counters[0]}")
     custom_name2 = st.text_input(f"New name for {counters[1]}")
     custom_name3 = st.text_input(f"New name for {counters[2]}")
