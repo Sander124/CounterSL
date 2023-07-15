@@ -36,22 +36,30 @@ with st.sidebar:
     #custom_name3 = st.text_input(f"New name for {st.session_state.cnames[2]}")
     #custom_name4 = st.text_input(f"New name for {st.session_state.cnames[3]}")
 
-    with st.form('form'):
-        
-        to_name = st.text_input(f"Replace with:")
+    with st.form('form1'):
+        to_name = st.text_input(f"Replace first name with:")
         apply = st.form_submit_button("Apply changes")
         if apply:
-            idx = 0#st.session_state.cnames.index(name)
-            st.session_state.cnames[idx] = to_name
+            st.session_state.cnames[0] = to_name
+
+    with st.form('form2'):
+        to_name2 = st.text_input(f"Replace second name with:")
+        apply2 = st.form_submit_button("Apply changes")
+        if apply2:
+            st.session_state.cnames[1] = to_name2
+
+    with st.form('form3'):
+        to_name3 = st.text_input(f"Replace third name with:")
+        apply3 = st.form_submit_button("Apply changes")
+        if apply3:
+            st.session_state.cnames[2] = to_name3
+
+    with st.form('form4'):
+        to_name4 = st.text_input(f"Replace fourth name with:")
+        apply4 = st.form_submit_button("Apply changes")
+        if apply4:
+            st.session_state.cnames[3] = to_name4
 
 
-    
-        #st.session_state.cnames[0] = custom_name1
-   # if custom_name2:
-     #   st.session_state.cnames[1] = custom_name2
-   # if custom_name3:
-  #      st.session_state.cnames[2] = custom_name3
-  #  if custom_name4:
-    #    st.session_state.cnames[3] = custom_name4
     
     
