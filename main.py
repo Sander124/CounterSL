@@ -8,10 +8,6 @@ if "cvalues" not in st.session_state:
 
 def increment_counter(i):
     st.session_state.cvalues[i] += 1
-
-def enable_counter(i):
-    col[i][0].disabled = False
-    col[i][1].disabled = False
     
 with col[0]:
     st.button(f"Increment {counters[0]}", on_click=increment_counter, args=[0]) 
@@ -41,12 +37,18 @@ with st.sidebar:
     if counter4:
         enable_counter(3)
             
-        custom_name = st.text_input(f"New name for {counters[i]}")
-        if custom_name:
-            counters[i] = custom_name
-
-def enable_counter(i):
-    col[i][0].disabled = False
-    col[i][1].disabled = False
+    custom_name1 = st.text_input(f"New name for {counters[0]}")
+    custom_name2 = st.text_input(f"New name for {counters[1]}")
+    custom_name3 = st.text_input(f"New name for {counters[2]}")
+    custom_name4 = st.text_input(f"New name for {counters[3]}")
+    
+    if custom_name1:
+        counters[0] = custom_name
+    if custom_name2:
+        counters[1] = custom_name
+    if custom_name3:
+        counters[2] = custom_name
+    if custom_name4:
+        counters[3] = custom_name
     
     
