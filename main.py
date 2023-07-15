@@ -20,17 +20,19 @@ with col[3]:
     st.metric(counters[3], 0, disabled=True)
 
 with st.sidebar:
-    for i in range(4):
-        if st.checkbox(f"Enable {counters[i]}"):
-            enable_counter(i)
+    if st.checkbox(f"Enable {counters[1]}"):
+        enable_counter(1)
+    if st.checkbox(f"Enable {counters[2]}"):
+        enable_counter(2)
+    if st.checkbox(f"Enable {counters[3]}"):
+        enable_counter(3)
             
         custom_name = st.text_input(f"New name for {counters[i]}")
         if custom_name:
             counters[i] = custom_name
 
 def enable_counter(i):
-    col = st.columns(4)[i]
-    col[0].disabled = False
-    col[1].disabled = False
+    col[i][0].disabled = False
+    col[i][1].disabled = False
     
     
