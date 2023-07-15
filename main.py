@@ -34,14 +34,21 @@ with st.sidebar:
     custom_name2 = st.text_input(f"New name for {st.session_state.cnames[1]}")
     custom_name3 = st.text_input(f"New name for {st.session_state.cnames[2]}")
     custom_name4 = st.text_input(f"New name for {st.session_state.cnames[3]}")
+
+    name = st.selectbox('Name to replace', st.session_state.cnames)
+    to_name = st.text_input(f"Replace with for:")
+    if name:
+        idx = st.session_state.cnames.index(name)
+        st.session_state.cnames[idx] = to_name
+
+
     
-    if custom_name1:
-        st.session_state.cnames[0] = custom_name1
-    if custom_name2:
-        st.session_state.cnames[1] = custom_name2
-    if custom_name3:
-        st.session_state.cnames[2] = custom_name3
-    if custom_name4:
-        st.session_state.cnames[3] = custom_name4
+        #st.session_state.cnames[0] = custom_name1
+   # if custom_name2:
+     #   st.session_state.cnames[1] = custom_name2
+   # if custom_name3:
+  #      st.session_state.cnames[2] = custom_name3
+  #  if custom_name4:
+    #    st.session_state.cnames[3] = custom_name4
     
     
