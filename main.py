@@ -7,7 +7,7 @@ if "cvalues" not in st.session_state:
     st.session_state.cvalues = [0, 0, 0, 0]
 
 def increment_counter(i):
-    st.session_state.values[i] += 1
+    st.session_state.cvalues[i] += 1
 
     
 with col[0]:
