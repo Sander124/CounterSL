@@ -36,7 +36,7 @@ with st.sidebar:
     #custom_name3 = st.text_input(f"New name for {st.session_state.cnames[2]}")
     #custom_name4 = st.text_input(f"New name for {st.session_state.cnames[3]}")
 
-    with st.form():
+    with st.form('form'):
         name = st.selectbox('Name to replace', st.session_state.cnames)
         to_name = st.text_input(f"Replace with:")
         apply = st.form_submit_button("Apply changes")
