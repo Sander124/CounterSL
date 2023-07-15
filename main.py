@@ -2,6 +2,24 @@ import streamlit as st
 
 st.set_page_config(layout="wide") 
 
+@st.cache
+def increment(name):
+    if name not in st.session_state.counters:
+        st.session_state.counters[name] = 0
+    st.session_state.counters[name] += 1
+    
+@st.cache
+def decrement(name):
+    if name not in st.session_state.counters:
+        st.session_state.counters[name] = 0
+    st.session_state.counters[name] -= 1
+   
+def add_counter(name):
+    
+    if st.session_state.num_counters >= 4:
+        st.error("Reached max of 4 counters")
+        return
+
 if "counters" not in st.session_state:
     st.session_state.counters = {}
 
@@ -28,24 +46,6 @@ with st.sidebar:
         
     if add_btn: 
         add_counter(name)
-        
-@st.cache
-def increment(name):
-    if name not in st.session_state.counters:
-        st.session_state.counters[name] = 0
-    st.session_state.counters[name] += 1
-    
-@st.cache
-def decrement(name):
-    if name not in st.session_state.counters:
-        st.session_state.counters[name] = 0
-    st.session_state.counters[name] -= 1
-   
-def add_counter(name):
-    
-    if st.session_state.num_counters >= 4:
-        st.error("Reached max of 4 counters")
-        return
 
     col = get_column()
     
