@@ -29,6 +29,7 @@ with col[3]:
     st.button(f"Increment {st.session_state.cnames[3]}", on_click=increment_counter, args=[3]) 
     st.metric(st.session_state.cnames[3], st.session_state.cvalues[3])
 
+
 with st.sidebar:
     #custom_name1 = st.text_input(f"New name for {st.session_state.cnames[0]}")
    #custom_name2 = st.text_input(f"New name for {st.session_state.cnames[1]}")
