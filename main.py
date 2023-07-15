@@ -2,6 +2,8 @@ import streamlit as st
 
 st.set_page_config(layout="wide") 
 
+col1, col2, col3, col4 = st.columns(4)
+
 @st.cache_data
 def increment(name):
     if name not in st.session_state.counters:
@@ -15,9 +17,10 @@ def decrement(name):
     st.session_state.counters[name] -= 1
    
 def add_counter(name):
-    
     if st.session_state.num_counters >= 4:
         st.error("Reached max of 4 counters")
+    else:
+        col
         return
 
 def get_column():
@@ -31,8 +34,6 @@ if "counters" not in st.session_state:
 
 if "num_counters" not in st.session_state:
     st.session_state.num_counters = 1 
-
-col1, col2 = st.columns(2)
 
 with col1:
 
