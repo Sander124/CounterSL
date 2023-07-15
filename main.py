@@ -14,19 +14,19 @@ def increment_counter(i):
     st.session_state.cvalues[i] += 1
     
 with col[0]:
-    st.button(f"Increment {st.session_state.cnames[0]}", on_click=increment_counter, args=[0]) 
+    st.button(f"Increment {st.session_state.cnames[0]}", on_click=increment_counter, args=[0], key = 1) 
     st.metric(st.session_state.cnames[0], st.session_state.cvalues[0])
     
 with col[1]:
-    st.button(f"Increment {st.session_state.cnames[1]}", on_click=increment_counter, args=[1]) 
+    st.button(f"Increment {st.session_state.cnames[1]}", on_click=increment_counter, args=[1],key = 2) 
     st.metric(st.session_state.cnames[1], st.session_state.cvalues[1])
 
 with col[2]:
-    st.button(f"Increment {st.session_state.cnames[2]}", on_click=increment_counter, args=[2]) 
+    st.button(f"Increment {st.session_state.cnames[2]}", on_click=increment_counter, args=[2],key = 3) 
     st.metric(st.session_state.cnames[2], st.session_state.cvalues[2])
 
 with col[3]:
-    st.button(f"Increment {st.session_state.cnames[3]}", on_click=increment_counter, args=[3]) 
+    st.button(f"Increment {st.session_state.cnames[3]}", on_click=increment_counter, args=[3],key = 4) 
     st.metric(st.session_state.cnames[3], st.session_state.cvalues[3])
 
 
