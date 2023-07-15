@@ -20,6 +20,12 @@ def add_counter(name):
         st.error("Reached max of 4 counters")
         return
 
+def get_column():
+    if st.session_state.num_counters % 2 == 0:
+        return st.columns(2) 
+    else:
+        return st.columns(1)
+
 if "counters" not in st.session_state:
     st.session_state.counters = {}
 
@@ -56,8 +62,3 @@ with st.sidebar:
 
     st.session_state.num_counters += 1
     
-def get_column():
-    if st.session_state.num_counters % 2 == 0:
-        return st.columns(2) 
-    else:
-        return st.columns(1)
