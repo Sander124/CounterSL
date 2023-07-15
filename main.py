@@ -12,7 +12,7 @@ def increment_counter(i):
     
 with col[0]:
     st.button(f"Increment {counters[0]}", on_click=increment_counter, args=[0]) 
-    st.metric(counters[i], st.session_state.values[i])
+    st.metric(counters[0], st.session_state.values[0])
     
 with col[1]:
     st.button(f"Increment {counters[1]}", disabled=True)
