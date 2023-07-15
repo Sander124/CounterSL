@@ -14,7 +14,7 @@ def increment_counter(i):
     st.session_state.cvalues[i] += 1
     
 with col[0]:
-    st.button(f"Increment {st.session_state.cnames[0]}", on_click=increment_counter, args=[0], theme=st.themes.SUCCESS) 
+    st.button(f"Increment {st.session_state.cnames[0]}", on_click=increment_counter, args=[0]) 
     st.metric(st.session_state.cnames[0], st.session_state.cvalues[0])
     
 with col[1]:
