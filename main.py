@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(layout="wide") 
 
-col1, col2, col3, col4 = st.columns(4)
+cols = st.columns(4)
 
 @st.cache_data
 def increment(name):
@@ -35,7 +35,7 @@ if "counters" not in st.session_state:
 if "num_counters" not in st.session_state:
     st.session_state.num_counters = 1 
 
-with col1:
+with cols[0]:
 
     st.button("Increment Sander", key="inc", on_click=increment, args=["Sander"])
     st.button("Decrement Sander", key="dec", on_click=decrement, args=["Sander"])
