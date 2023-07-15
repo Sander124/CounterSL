@@ -1,7 +1,7 @@
 import streamlit as st
 
 counters = ["Counter 1", "Counter 2", "Counter 3", "Counter 4"]
-col = st.columns(4)[i]
+col = st.columns(4)
 
 with col[0]:
     st.button(f"Increment {counters[0]}", disabled=False)
